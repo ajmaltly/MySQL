@@ -1,0 +1,18 @@
+create database c;
+use c;
+create table empl3(employee_id int unique ,first_name varchar(10),last_name varchar(10),date_join date ,salary float,department varchar(15));
+select * from empl3;
+select upper(first_name) from empl3;
+select lower(last_name) from empl3;
+select employee_id,concat(first_name,last_name) from empl3;
+select substring(first_name,1,4) as substring_frst4 from empl3;
+select locate('h',first_name) as position_h from empl3 where first_name="john";
+select first_name from empl3 order by first_name ;
+select max(salary) from empl3;
+select min(salary) from empl3;
+select count(salary) as count_salary,min(salary) as min_salary,max(salary) as highest_salary,avg(salary) as average_salary from empl3;
+select department,count(department) as number_of_employee from empl3 group by department;
+select department,first_name,max(salary) from empl3 group by department;
+select first_name ,department from empl3 group by department having count(department)>1;
+create view view_name as select first_name from empl3;
+select * from view_name;
